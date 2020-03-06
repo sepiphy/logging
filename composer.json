@@ -1,0 +1,38 @@
+{
+    "name": "sepiphy/logging",
+    "description": "The \"sepiphy/logging\" package",
+    "keywords": ["sepiphy", "tools", "phptools", "testing"],
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/sepiphy/phptools",
+    "support": {
+        "issues": "https://github.com/sepiphy/phptools/issues",
+        "source": "https://github.com/sepiphy/phptools"
+    },
+    "authors": [
+        {
+            "name": "Quynh Xuan Nguyen",
+            "email": "seriquynh@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "monolog/monolog": "^2.0",
+        "sun-asterisk/chatwork-php": "^0.1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sepiphy\\Testing\\": "./"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
