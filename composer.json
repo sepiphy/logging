@@ -1,7 +1,7 @@
 {
     "name": "sepiphy/logging",
     "description": "The \"sepiphy/logging\" package",
-    "keywords": ["sepiphy", "tools", "phptools", "testing"],
+    "keywords": ["sepiphy", "tools", "phptools", "logging"],
     "type": "library",
     "license": "MIT",
     "homepage": "https://github.com/sepiphy/phptools",
@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Sepiphy\\Testing\\": "./"
+            "Sepiphy\\Logging\\": "./"
         }
     },
     "extra": {
