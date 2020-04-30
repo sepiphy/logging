@@ -14,7 +14,8 @@ namespace Sepiphy\Logging;
 use Monolog\Formatter\FormatterInterface;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\AbstractProcessingHandler;
-use SunAsterisk\Chatwork\Chatwork;
+use SunAsterisk\Chatwork\Chatwork as ChatworkClient;
+use SunAsterisk\Chatwork\Helpers\Message as ChatworkMessage;
 
 /**
  * @author Quynh Xuan Nguyen <seriquynh@gmail.com>
@@ -22,9 +23,9 @@ use SunAsterisk\Chatwork\Chatwork;
 class ChatworkHandler extends AbstractProcessingHandler
 {
     /**
-     * @var Chatwork
+     * @var ChatworkClient
      */
-    protected $chatwork;
+    protected $chatworkClient;
 
     /**
      * @var string
@@ -42,7 +43,7 @@ class ChatworkHandler extends AbstractProcessingHandler
     {
         parent::__construct();
 
-        $this->chatwork = Chatwork::withAPIToken($apiKey);
+        $this->chatworkClient = ChatworkClient::withAPIToken($apiKey);
         $this->roomId = $roomId;
     }
 
@@ -51,9 +52,27 @@ class ChatworkHandler extends AbstractProcessingHandler
      */
     public function write(array $record): void
     {
-        $message = '[code]' . $this->getFormatter()->format($record) . '[/code]';
+        $message = (new ChatworkMessage)->code($this->getFormatter()->format($record));
 
-        $this->chatwork->room($this->roomId)->messages()->create($message);
+        $this->chatworkClient->room($this->roomId)->messages()->create((string) $message);
+    }
+
+    /**
+     * @return $this
+     */
+    public function setChatworkClient(ChatworkClient $chatworkClient)
+    {
+        $this->chatworkClient = $chatworkClient;
+
+        return $this;
+    }
+
+    /**
+     * @return ChatworkClient
+     */
+    public function getChatworkClient()
+    {
+        return $this->chatworkClient;
     }
 
     /**
