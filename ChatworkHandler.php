@@ -52,7 +52,7 @@ class ChatworkHandler extends AbstractProcessingHandler
      */
     public function write(array $record): void
     {
-        $message = (new ChatworkMessage)->code($this->getFormatter()->format($record));
+        $message = (new ChatworkMessage())->code($this->getFormatter()->format($record));
 
         $this->chatworkClient->room($this->roomId)->messages()->create((string) $message);
     }
