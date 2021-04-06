@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the sepiphy/phptools package.
+ * This file is part of the Sepiphy package.
  *
  * (c) Quynh Xuan Nguyen <seriquynh@gmail.com>
  *
@@ -36,10 +36,10 @@ class ChatworkHandler extends AbstractProcessingHandler
      * Constructor
      *
      * @param string $apiKey
-     * @param string $roomId
+     * @param int $roomId
      * @return void
      */
-    public function __construct(string $apiKey, string $roomId)
+    public function __construct(string $apiKey, int $roomId)
     {
         parent::__construct();
 
@@ -52,9 +52,9 @@ class ChatworkHandler extends AbstractProcessingHandler
      */
     public function write(array $record): void
     {
-        $message = (new ChatworkMessage())->code($this->getFormatter()->format($record));
+        $message = (string) (new ChatworkMessage())->code($this->getFormatter()->format($record));
 
-        $this->chatworkClient->room($this->roomId)->messages()->create((string) $message);
+        $this->chatworkClient->room($this->roomId)->messages()->create($message);
     }
 
     /**

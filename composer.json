@@ -1,13 +1,13 @@
 {
     "name": "sepiphy/logging",
-    "description": "The \"sepiphy/logging\" package",
+    "description": "Support handlers out of monolog/monolog",
     "keywords": ["sepiphy", "tools", "phptools", "logging"],
     "type": "library",
     "license": "MIT",
-    "homepage": "https://github.com/sepiphy/phptools",
+    "homepage": "https://github.com/sepiphy/logging",
     "support": {
-        "issues": "https://github.com/sepiphy/phptools/issues",
-        "source": "https://github.com/sepiphy/phptools"
+        "issues": "https://github.com/sepiphy/logging/issues",
+        "source": "https://github.com/sepiphy/logging"
     },
     "authors": [
         {
@@ -16,19 +16,31 @@
         }
     ],
     "require": {
-        "php": "^7.2",
-        "monolog/monolog": "^2.0",
-        "sun-asterisk/chatwork-php": "^0.1.2"
+        "php": ">=7.4",
+        "monolog/monolog": "^2.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.4",
+        "phpunit/phpunit": "^9.5",
+        "sun-asterisk/chatwork-php": "^0.2.0"
     },
     "autoload": {
         "psr-4": {
-            "Sepiphy\\Logging\\": "./"
+            "Sepiphy\\Logging\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Sepiphy\\Logging\\": "tests/"
         }
     },
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"
         }
+    },
+    "suggest": {
+        "sun-asterisk/chatwork-php": "Required to use ChatworkHandler (^0.2.0)."
     },
     "config": {
         "sort-packages": true
