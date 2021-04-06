@@ -15,21 +15,18 @@ Install `sepiphy/logging` package via composer.
 
 ## Usage
 
-Create a new file with the code sample below.
-
+Create a new file called "try-logging.php" with the code sample below:
 
 ```php
 <?php
-
-// try-logging.php
 
 use Monolog\Logger;
 use Sepiphy\Logging\ChatworkHandler;
 
 require __DIR__ . '/vendor/autoload.php';
 
-$apiKey = 'YOUR-API-KEY';
-$roomId = 'YOUR-ROOM-ID';
+$apiKey = 'YOU_API_KEY';
+$roomId = 12345678; // Your room id that you want to report to.
 
 $handler = new ChatworkHandler($apiKey, $roomId);
 
@@ -44,8 +41,9 @@ try {
 } catch (Exception $exception) {
     $logger->error($exception, ['exception' => $exception]);
 }
+
 ```
 
-Try it by using this command
+Verify result by running this command:
 
     $ php try-logging.php

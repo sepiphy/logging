@@ -36,10 +36,10 @@ class ChatworkHandler extends AbstractProcessingHandler
      * Constructor
      *
      * @param string $apiKey
-     * @param string $roomId
+     * @param int $roomId
      * @return void
      */
-    public function __construct(string $apiKey, string $roomId)
+    public function __construct(string $apiKey, int $roomId)
     {
         parent::__construct();
 

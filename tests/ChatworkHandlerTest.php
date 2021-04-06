@@ -11,11 +11,11 @@
 
 namespace Tests\Sepiphy\Logging;
 
-use Assert;
 use Mockery as m;
+use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\TestCase;
 use Sepiphy\Logging\ChatworkHandler;
 use SunAsterisk\Chatwork\Chatwork as ChatworkClient;
-use PHPUnit\Framework\TestCase;
 
 /**
  * @author Quynh Xuan Nguyen <seriquynh@gmail.com>
@@ -24,7 +24,7 @@ class ChatworkHandlerTest extends TestCase
 {
     public function testWrite()
     {
-        $chatworkHandler = new ChatworkHandler($apiKey = 'my-api-key', $roomId = 'my-room-id');
+        $chatworkHandler = new ChatworkHandler($apiKey = 'my-api-key', $roomId = 12345);
 
         /** @var ChatworkClient $chatworkClient */
         $chatworkClient = m::mock(ChatworkClient::class);
